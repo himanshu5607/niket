@@ -38,6 +38,6 @@ and check on instance
 after showing maam click terraform destroy
 
 SONARQUBE 
-
+http://localhost:9000/
 
 
