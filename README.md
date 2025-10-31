@@ -41,3 +41,52 @@ SONARQUBE
 http://localhost:9000/
 
 
+#2
+{ 
+"Version": "2012-10-17", 
+    "Statement": [ 
+        { 
+            "Sid": "PublicReadGetObject", 
+            "Effect": "Allow", 
+            "Principal": "*", 
+            "Action": "s3:GetObject", 
+            "Resource": "arn:aws:s3:::YOUR_BUCKET_NAME/*" 
+        } 
+    ] 
+} 
+
+
+#3
+ Search for and add the permission policy: 
+AmazonEC2RoleforAWSCodeDeploy.
+
+
+In the instance's terminal, install the CodeDeploy agent: 
+#!/bin/bash 
+sudo yum update -y 
+sudo yum install ruby -y 
+sudo yum install wget -y 
+cd /home/ec2-user 
+wget https://aws-codedeploy-us-east-1.s3.us-east-1.amazonaws.com/latest/install 
+chmod +x ./install 
+sudo ./install auto 
+sudo service codedeploy-agent status
+
+#8
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::himbkt-08/*"
+        }
+    ]
+}
+policy:
+Amazons3fullaccess
+cloudwatchfullacess
+AWslambdaBasicexecution
+
+
