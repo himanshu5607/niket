@@ -90,3 +90,19 @@ cloudwatchfullacess
 AWslambdaBasicexecution
 
 
+import json
+import boto3
+s3 = boto3.client('s3')
+def lambda_handler(event, context):
+    bucket = "himbkt-08"
+    dataToUpload = {}
+    dataToUpload["name"] = "Himanshu"
+    dataToUpload["age"] = 25
+    dataToUpload["profession"] = "Engineer"
+    dataToUpload["address"] = "Delhi"
+    dataToUpload["phone"] = "1234567890"
+    dataToUpload["file"] = "himdata"
+    fileName = "himdata" + ".json"
+    uploadByteStream = bytes(json.dumps(dataToUpload).encode('UTF-8'))
+    s3.put_object(Bucket=bucket, Key=fileName, Body=uploadByteStream)
+    print('Put Complete') 
